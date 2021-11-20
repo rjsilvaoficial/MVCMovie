@@ -3,17 +3,19 @@ using System.Text.Encodings.Web;
 
 namespace MvcMovie.Controllers
 {
-    public class c : Controller
+    public class HelloWorldController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            //return View();
-            return "Esta é minha action padrão!";
+            return View();
         }
 
-        public string Welcome()
+        public IActionResult Welcome(string name, int numTimes = 1)
         {
-            return "Esta é a ação bem-vindo!";
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = numTimes;
+
+            return View();
         }
     }
 }
